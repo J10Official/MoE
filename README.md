@@ -81,13 +81,17 @@ LoRA-based experts implemented from scratch for parameter-efficient MoE training
 
 ## Project Structure
 
+This repository preserves the submitted coursework implementation. Start with the report for the experimental comparisons, or the primary notebook for the model implementation.
+
 | File | Description |
-|------|-------------|
-| `MoE_Final.ipynb` | **Primary notebook** — MoE training, checkpointing, and evaluation pipeline |
-| `moe-anlp_with_Checkpoint.ipynb` | Training notebook with checkpoint save/load support |
-| `moe-anlp.ipynb` | Original baseline notebook |
-| `moe.py` | Standalone Python script with full MoE pipeline |
-| `checkpoints/` | Locally saved model checkpoints |
+|---|---|
+| [MoE_Final.ipynb](MoE_Final.ipynb) | Primary MoE training and evaluation notebook |
+| [MoE.ipynb](MoE.ipynb) | Companion MoE notebook; consult the final notebook for the main entry point |
+| [BART.ipynb](BART.ipynb) | BART baseline notebook |
+| [T5.ipynb](T5.ipynb) | T5 baseline notebook |
+| [LLAMA_finetune.py](LLAMA_finetune.py) | Llama fine-tuning script |
+| [Report.pdf](Report.pdf) | Experimental analysis and model comparisons |
+| [Assignment.pdf](Assignment.pdf) | Original task specification |
 
 ---
 
@@ -112,24 +116,21 @@ LoRA-based experts implemented from scratch for parameter-efficient MoE training
 
 ## Quick Start
 
-### Install Dependencies
-```bash
-pip install -r requirements.txt
-```
+### Notebook environment
+
+Open [MoE_Final.ipynb](MoE_Final.ipynb) in Jupyter or Kaggle and review its environment/install cells before running the training workflow. The baseline notebooks document their respective environments. Training needs GPU resources and dataset/model access.
+
+There is no root `requirements.txt` or standalone `moe.py` in this snapshot; the notebook is the documented MoE entry point. Checkpoint links are listed under Trained Models above.
 
 ### Training
-Open `MoE_Final.ipynb` in Jupyter or Kaggle and run all cells. The `Config` class at the top controls hyperparameters, router selection, and bonus feature toggles.
 
-Alternatively, run the standalone script:
-```bash
-python3 moe.py
-```
+Use the `Config` class in the primary notebook to select hyperparameters, routing, and bonus features. Read [Report.pdf](Report.pdf) for the comparisons and evaluation results before launching a new run.
 
 ---
 
 ## Configuration
 
-All settings live in the `Config` class (top of `MoE_Final.ipynb` or `moe.py`):
+The MoE settings live in the `Config` class in `MoE_Final.ipynb`:
 
 | Category | Key Parameters |
 |----------|----------------|
